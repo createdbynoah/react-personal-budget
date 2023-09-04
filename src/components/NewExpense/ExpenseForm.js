@@ -40,25 +40,23 @@ const ExpenseForm = () => {
     // });
   };
 
-  const inputChangeHander = (id, value) => {
-    if (id === 'title') {
-      setEnteredTitle(value);
-    } else if (id === 'amount') {
-      setEnteredAmount(value);
-    } else if (id === 'date') {
-      setEnteredDate(value);
-    }
-  };
+  //   ***** Shared event handler for user input, use with anonymous arrow function *****
+  //   const inputChangeHander = (id, value) => {
+  //     if (id === 'title') {
+  //       setEnteredTitle(value);
+  //     } else if (id === 'amount') {
+  //       setEnteredAmount(value);
+  //     } else if (id === 'date') {
+  //       setEnteredDate(value);
+  //     }
+  //   };
 
   return (
     <form>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input
-            type="text"
-            onChange={(e) => inputChangeHander('title', e.target.value)}
-          />
+          <input type="text" onChange={titleChangeHandler} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -66,7 +64,7 @@ const ExpenseForm = () => {
             type="number"
             min="0.01"
             step="0.01"
-            onChange={(e) => inputChangeHander('amount', e.target.value)}
+            onChange={amountChangeHandler}
           />
         </div>
         <div className="new-expense__control">
@@ -75,7 +73,7 @@ const ExpenseForm = () => {
             type="date"
             min="2019-01-01"
             max="2023-12-31"
-            onChange={(e) => inputChangeHander('date', e.target.value)}
+            onChange={dateChangeHandler}
           />
         </div>
       </div>
